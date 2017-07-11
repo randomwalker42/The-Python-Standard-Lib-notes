@@ -134,11 +134,67 @@ The default value is None (compare the elements directly).
 
 reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
 
+---------------------------------------------------------------------------------------------------------------------------
+
+sorted()函数会返回一个排序过后的新的可迭代元素。
+
+其中key参数用来指定排序的规则，该参数的值为一个函数，此函数只有一个参数且返回一个值用来进行比较。
+
+例如通过key指定的函数来忽略字符串的大小写：
+
+sorted("This is a test string from Andrew".split(), key=str.lower)
+
+['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+
+用复杂对象的某些值来对复杂对象的序列排序:
+
+student_tuples = 
+
+[
+        ('john', 'A', 15),
+        ('jane', 'B', 12),
+        ('dave', 'B', 10),
+]
+
+sorted(student_tuples, key=lambda student: student[2])   # sort by age
+
+reverse=True or False则用来指定升/降序。
+
 (25) zip(*iterables)
 
 Make an iterator that aggregates elements from each of the iterables.
 
-zip() in conjunction with the * operator can be used to unzip a list.
+zip() in conjunction with the * operator can be used to unzip a list. 
+
+简单来讲，zip()函数可以将若干个列表压缩成一个列表，该列表中的每一个元素都是一个元组，每个元组中的元素则由原本若干列表中相同位置的元素组成。
+
+注意Py3之后zip()的返回值为一个可迭代对象（iterable），而不是列表了。
+
+a = [1,2,3]
+b = [4,5,6]
+
+c = list(zip(a,b))
+
+c = [(1,4),(2,5),(3,6)]
+
+zip()参数可以接受任何类型的序列，同时也可以有两个以上的参数;当传入参数的长度不同时，zip能自动以最短序列长度为准进行截取，获得元组。
+
+一些常见用法：
+
+构造字典：
+
+a = ['a','b','c']
+b = [4,5,6]
+
+dic = dict(zip(a,b))
+
+dic = {'a': 4, 'b': 5, 'c': 6}
+
+结合map()实现矩阵的转置：
+
+x = [[1,2,3], [4,5,6], [7,8,9]]
+
+xT = list(map(list,list(zip(*x))))
 
 
 
