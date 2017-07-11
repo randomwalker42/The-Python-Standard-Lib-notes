@@ -1,0 +1,181 @@
+'''
+Note that not all built-in functions are discussed here.
+
+definition: Built-in functions and exceptions are objects that can be used by all Python codes without the need of 
+            an import statement.           
+'''            
+
+'''
+(1) all(iterable)
+
+Return True if all elements of the iterable are true (or if the iterable is empty). 
+
+(2) any(iterable)
+
+Return True if any element of the iterable is true. If the iterable is empty, return False.
+
+(3) bin(x)
+
+Convert an integer number to a binary string. The result is a valid Python expression. 
+If x is not a Python int object, it has to define an __index__() method that returns an integer.
+
+(4) chr(i)
+
+Return the string representing a character whose Unicode code point is the integer i. 
+For example, chr(97) returns the string 'a', while chr(8364) returns the string '€'. This is the inverse of ord().
+
+(5) class complex([real[, imag]])
+
+Return a complex number with the value real + imag*1j or convert a string or number to a complex number. 
+
+If the first parameter is a string, it will be interpreted as a complex number and the function must be called without 
+a second parameter. 
+
+The second parameter can never be a string. Each argument may be any numeric type (including complex). 
+
+(6) dir([object])
+
+Without arguments, return the list of names in the current local scope. 
+With an argument, attempt to return a list of valid attributes for that object.
+
+(7) divmod(a, b)
+
+Take two (non complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division.
+
+(8) enumerate(iterable, start=0)
+
+Return an enumerate object. 
+iterable must be a sequence, an iterator, or some other object which supports iteration. 
+The __next__() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable.
+
+(9) eval(expression, globals=None, locals=None)
+
+The arguments are a string and optional globals and locals. 
+If provided, globals must be a dictionary. If provided, locals can be any mapping object.
+
+The expression argument is parsed and evaluated as a Python expression.
+The return value is the result of the evaluated expression. Syntax errors are reported as exceptions. 
+
+(10) filter(function, iterable)
+
+Construct an iterator from those elements of iterable for which function returns true.
+If function is None, the identity function is assumed, that is, all elements of iterable that are false are removed.
+
+(11) format(value[, format_spec])
+
+Convert a value to a “formatted” representation, as controlled by format_spec. 
+The interpretation of format_spec will depend on the type of the value argument.
+
+The default format_spec is an empty string which usually gives the same effect as calling str(value).
+
+(12) hex(x)
+
+Convert an integer number to a lowercase hexadecimal string prefixed with “0x”.
+
+(13) input([prompt])
+
+The function reads a line from input, converts it to a string (stripping a trailing newline), and returns that. 
+
+(14) isinstance(object, classinfo)
+
+Return true if the object argument is an instance of the classinfo argument, 
+or of a (direct, indirect or virtual) subclass thereof.
+
+The classinfo must be a type or tuple of types and such tuples
+
+(15) map(function, iterable, ...)
+
+Return an iterator that applies function to every item of iterable, yielding the results. 
+
+If additional iterable arguments are passed, 
+function must take that many arguments and is applied to the items from all iterables in parallel. 
+
+With multiple iterables, the iterator stops when the shortest iterable is exhausted.
+
+(16) next(iterator[, default])
+
+Retrieve the next item from the iterator by calling its __next__() method.
+
+(17) oct(x)
+
+Convert an integer number to an octal string. 
+
+(18) open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+
+(19) ord(c)
+
+Given a string representing one Unicode character, return an integer representing the Unicode code point of that character.
+The inverse of chr().
+
+(20) pow(x, y[, z])
+
+Return x to the power y; if z is present, return x to the power y, modulo z (computed more efficiently than pow(x, y) % z). 
+The two-argument form pow(x, y) is equivalent to using the power operator: x**y.
+
+(21) repr(object)
+
+Return a string containing a printable representation of an object. 
+
+(22) reversed(seq)
+
+Return a reverse iterator. 
+
+(23) round(number[, ndigits])
+
+Return number rounded to ndigits precision after the decimal point. 
+If ndigits is omitted or is None, it returns the nearest integer to its input.
+
+(24) sorted(iterable[, key][, reverse])
+
+Return a new sorted list from the items in iterable.
+
+key specifies a function of one argument that is used to extract a comparison key from each list element: key=str.lower. 
+The default value is None (compare the elements directly).
+
+reverse is a boolean value. If set to True, then the list elements are sorted as if each comparison were reversed.
+
+(25) zip(*iterables)
+
+Make an iterator that aggregates elements from each of the iterables.
+
+zip() in conjunction with the * operator can be used to unzip a list.
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
