@@ -207,6 +207,19 @@ x = [[1,2,3], [4,5,6], [7,8,9]]
 
 xT = list(map(list,list(zip(*x))))
 
+<<Effective Python>>里提到了:use zip to process iterators in parallel
+
+names = ['Adam', 'Lisa', 'Bart']
+len_names = [len(x) for x in names]
+
+longest_name = None
+max_letters = 0
+
+for name, count in zip(names, len_names):
+    if count > max_letters:
+        longest_name = name
+        max_letters = count 
+        
 
 
 
