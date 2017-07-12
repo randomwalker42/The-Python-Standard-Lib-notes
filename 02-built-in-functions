@@ -92,6 +92,17 @@ function must take that many arguments and is applied to the items from all iter
 
 With multiple iterables, the iterator stops when the shortest iterable is exhausted.
 
+简单来说，该函数对可迭代元组中的每一个元素应用‘function’方法。
+
+如果给出了额外的可迭代参数，则对每个可迭代参数中的元素‘并行’地应用‘function’，filter()函数可以看作是只有一个迭代子时的map()
+
+该函数常与lambda函数结合使用：
+
+s = ['adam', 'LISA', 'barT']
+s2 = list(map(lambda x:x[:1].upper() + x[1:].lower(),s))
+
+s2 = ['Adam', 'Lisa', 'Bart']
+
 (16) next(iterator[, default])
 
 Retrieve the next item from the iterator by calling its __next__() method.
