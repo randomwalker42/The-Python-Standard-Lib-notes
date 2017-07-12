@@ -1,0 +1,160 @@
+'''
+standard types that are built into the interpreter
+
+The principal built-in types are numerics, sequences, mappings, classes, instances and exceptions.
+
+4.2 Boolean operations: and, or, not 
+
+priority: not > and > or 
+
+4.3 Comparisons
+
+All eight comparison operations in Python has the same priority, which is higher than that of the Boolean operations.
+
+<	     (strictly less than)
+<=	   (less than or equal)
+>	     (strictly greater than)
+>=	   (greater than or equal)
+==	   (equal)
+!=	   (not equal)
+is	   (object identity)
+is not (negated object identity)
+
+4.4 Numeric types
+
+There are three distinct numeric types: integers, floating point numbers, and complex numbers. 
+In addition, Booleans are a subtype of integers. 
+
+Several operations to be memorised:
+
+x // y	: (floored quotient of x and y)
+
+note: Also referred to as integer division. 
+      The resultant value is a whole integer which is always rounded towards minus infinity.
+      
+math.trunc(x)	: (x truncated to Integral)
+round(x[, n])	: (x rounded to n digits, rounding half to even. If n is omitted, it defaults to 0.)
+math.floor(x)	: (the greatest Integral <= x)
+math.ceil(x)	: (the least Integral >= x)
+
+Additional methods on float:
+
+float.as_integer_ratio()
+
+此方法能够将小数转化为分数的形式，函数返回一个包含两个元素的元组，第一个元素代表分子，第二个元素代表分母。
+
+float.is_integer()
+
+Return True if the float instance is finite with integral value, and False otherwise
+
+4.6 Sequence types: list, tuple, range 
+
+Common sequence operations:
+
+x in s	              : True if an item of s is equal to x, else False	
+x not in s	          : False if an item of s is equal to x, else True	
+s + t	                : the concatenation of s and t	
+s * n or n * s	      : equivalent to adding s to itself n times	
+s[i]	                : ith item of s, origin 0	
+s[i:j]	              : slice of s from i to j
+s[i:j:k]	            : slice of s from i to j with step k	
+len(s)	              : length of s	 
+min(s)	              : smallest item of s	 
+max(s)        	      : largest item of s	 
+s.index(x[, i[, j]])	: index of the first occurrence of x in s (at or after index i and before index j)	
+s.count(x)	          : total number of occurrences of x in s	 
+
+Mutable sequence operations:
+
+s[i] = x	            : item i of s is replaced by x	 
+s[i:j] = t	          : slice of s from i to j is replaced by the contents of the iterable t	 
+del s[i:j]	          : same as s[i:j] = []	 
+s[i:j:k] = t	        : the elements of s[i:j:k] are replaced by those of t	
+del s[i:j:k]	        : removes the elements of s[i:j:k] from the list	 
+s.append(x)	          : appends x to the end of the sequence (same as s[len(s):len(s)] = [x])	 
+s.clear()	            : removes all items from s (same as del s[:])	
+s.copy()	            : creates a shallow copy of s (same as s[:])	
+s.extend(t) or s += t	: extends s with the contents of t (for the most part the same as s[len(s):len(s)] = t)	 
+s *= n	              : updates s with its contents repeated n times	
+s.insert(i, x)	      : inserts x into s at the index given by i (same as s[i:i] = [x])	 
+s.pop([i])	          : retrieves the item at i and also removes it from s	
+s.remove(x)	          : remove the first item from s where s[i] == x	
+s.reverse()	          : reverses the items of s in place	
+
+Lists:
+
+Lists may be constructed in several ways:
+
+Using a pair of square brackets to denote the empty list: []
+Using square brackets, separating items with commas: [a], [a, b, c]
+Using a list comprehension: [x for x in iterable]
+Using the type constructor: list() or list(iterable)
+
+Lists implement all of the common and mutable sequence operations and have an additional method sort().
+
+sort(*, key=None, reverse=None)
+This method sorts the list in place, using only < comparisons between items. 
+
+key specifies a function of one argument that is used to extract a comparison key from each list element (for example, key=str.lower). 
+The key corresponding to each item in the list is calculated once and then used for the entire sorting process. 
+The default value of None means that list items are sorted directly without calculating a separate key value.
+
+与内置函数sorted()的区别在于，使用sort()方法会直接改变原始序列，而sorted()只会返回一个改变过后的新序列，原序列不会发生变化。
+
+Tuples:
+
+Tuples are immutable sequences, typically used to store collections of heterogeneous data,
+and are also used for cases where an immutable sequence of homogeneous data is needed.
+
+Tuples may be constructed in a number of ways:
+
+Using a pair of parentheses to denote the empty tuple: ()
+Using a trailing comma for a singleton tuple: a, or (a,)
+Separating items with commas: a, b, c or (a, b, c)
+Using the tuple() built-in: tuple() or tuple(iterable)
+
+Note that it is actually the comma which makes a tuple, not the parentheses.
+
+Tuples implement all of the common sequence operations.
+
+Ranges:
+
+The range type represents an immutable sequence of numbers, 
+and is commonly used for looping a specific number of times in for loops.
+
+class range(start, stop[, step])
+
+The arguments to the range constructor must be integers. 
+If the step argument is omitted, it defaults to 1. 
+If the start argument is omitted, it defaults to 0. 
+If step is zero, ValueError is raised.
+
+The contents of a range r are determined by the formula r[i] = start + step*i where i >= 0 and r[i] < stop.
+(也就是说stop的值无法取到，但是start的值可以。）
+
+Ranges implement all of the common sequence operations except concatenation and repetition.
+
+The advantage of the range type over a regular list or tuple: 
+A range object will always take the same (small) amount of memory, no matter the size of the range it represents
+
+4.7 String methods
+
+Strings implement all of the common sequence operations.
+
+In addition, strings also support some other methods:
+
+str.capitalize() 返回一个新的字符串，其首字母大写，后面的内容全部小写
+
+str.count(sub[, start[, end]]) 返回字符串中某一个/段字符出现的次数
+
+str.endswith(suffix[, start[, end]]) 用于检测字符串末尾的值，返回一个Boolean
+
+str.find(sub[, start[, end]]) 用于查找字符串中某一片段的位置(第一次出现的位置），返回索引，若无结果返回-1
+(与str.index()用法相同）
+
+str.format()
+
+
+
+
+ 
