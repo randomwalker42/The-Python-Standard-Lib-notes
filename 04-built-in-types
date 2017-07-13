@@ -152,7 +152,122 @@ str.endswith(suffix[, start[, end]]) 用于检测字符串末尾的值，返回�
 str.find(sub[, start[, end]]) 用于查找字符串中某一片段的位置(第一次出现的位置），返回索引，若无结果返回-1
 (与str.index()用法相同）
 
-str.format()
+str.format() 可以用来改变字符串中某个片段，返回修改过后的新字符串，原字符串不变。
+
+"The sum of 1 + 2 is {0}".format(1+2)
+
+花括号中的为需要被替换的部分，函数的参数则为替换的部分。
+
+str.isalnum()
+
+Return true if all characters in the string are alphanumeric and there is at least one character, false otherwise. 
+
+str.isalpha()
+
+Return true if all characters in the string are alphabetic and there is at least one character, false otherwise. 
+
+str.isdecimal()
+
+Return true if all characters in the string are decimal characters and there is at least one character, false otherwise. 
+
+str.isdigit()
+
+Return true if all characters in the string are digits and there is at least one character, false otherwise.
+
+str.isnumeric()
+
+Return true if all characters in the string are numeric characters, and there is at least one character, false otherwise.
+
+str.isspace()
+
+Return true if there are only whitespace characters in the string and there is at least one character, false otherwise. 
+
+str.isupper() 用来判读字符串中的字母是否都为大写，返回一个Boolean
+str.islower() 同理
+
+str.join(iterable)
+
+Return a string which is the concatenation of the strings in iterable.
+
+str.lower()
+
+Return a copy of the string with all the cased characters converted to lowercase.
+
+str.lstrip([chars]) 将chars中包含的字符从字符串的左边移除，返回一个新的字符串。
+
+If omitted or None, the chars argument defaults to removing whitespace.
+
+>>> '   spacious   '.lstrip()
+'spacious   '
+>>> 'www.example.com'.lstrip('cmowz.')
+'example.com'
+
+具体的工作原理好像是从左开始遇到第一个不在chars中的字符串就自动停止了
+
+str.strip([chars])
+
+Return a copy of the string with the leading and trailing characters removed.
+
+使用strip的话则会将所有符合的字符移除，从头至尾（待定）
+
+str.partition(sep)
+
+Split the string at the first occurrence of sep, 
+and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator.
+
+str.rpartition(sep)
+
+Split the string at the last occurrence of sep.
+
+str.replace(old, new[, count])
+
+Return a copy of the string with all occurrences of substring old replaced by new. 
+If the optional argument count is given, only the first count occurrences are replaced.
+
+str.swapcase()
+
+Return a copy of the string with uppercase characters converted to lowercase and vice versa.
+
+str.title()
+
+Return a titlecased version of the string where words start with an uppercase character 
+and the remaining characters are lowercase.
+
+str.rfind(sub[, start[, end]])
+Return the highest index in the string where substring sub is found, 
+such that sub is contained within s[start:end]. 
+
+Optional arguments start and end are interpreted as in slice notation. 
+Return -1 on failure.
+
+str.rindex(sub[, start[, end]])
+Like rfind() but raises ValueError when the substring sub is not found.
+
+str.rsplit(sep=None, maxsplit=-1)
+
+Return a list of the words in the string, using sep as the delimiter string. 
+If maxsplit is given, at most maxsplit splits are done, the rightmost ones. 
+If sep is not specified or None, any whitespace string is a separator.
+
+str.split(sep=None, maxsplit=-1)
+
+Return a list of the words in the string, using sep as the delimiter string. 
+If maxsplit is given, at most maxsplit splits are done (thus, the list will have at most maxsplit+1 elements). 
+If maxsplit is not specified or -1, then there is no limit on the number of splits (all possible splits are made).
+
+str.splitlines([keepends])
+
+Return a list of the lines in the string, breaking at line boundaries. 
+Line breaks are not included in the resulting list unless keepends is given and true.
+
+用来处理文本文档很有用。
+
+str.startswith(prefix[, start[, end]])
+
+Return True if string starts with the prefix, otherwise return False. 
+prefix can also be a tuple of prefixes to look for. 
+
+
 
 
 
